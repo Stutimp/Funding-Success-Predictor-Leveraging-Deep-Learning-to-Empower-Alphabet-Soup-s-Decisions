@@ -1,7 +1,7 @@
-# Deep-learning-challenge
-Neural Network Model 
-
 ### Deep Learning Challenge: 
+
+## Charity Funding Predictor
+
 ## Overview:
 
 The non-profit foundation Alphabet Soup wants to create an algorithm to predict whether or not
@@ -24,6 +24,35 @@ for binning. We used several data points as a cutoff to bin “rare” variables
 value of “Other” for each unique value. Categorical variables were encoded by get_dummies()
 after checking to see if the binning was successful.
 
+### Results: Using bulleted lists and images to support your answers, address the following questions:
+
+***Data Preprocessing***
+
+***What variable(s) are the target(s) for your model?***
+- Target Variable: "IS_SUCCESSFUL" which is refered with 'y' in the code.
+
+***What variable(s) are the features for your model?***
+- Feature Variables: All other columns in application_df_dummies after dropping "IS_SUCCESSFUL", which is 'X' in our code.
+
+**What variable(s) should be removed from the input data because they are neither targets nor features?**
+- "EIN" and "NAME" , both are neither targets nor features contributing to input feature for machine learning model, hence we should remove both of them.
+
+### Compiling, Training, and Evaluating the Model
+
+***How many neurons, layers, and activation functions did you select for your neural network model, and why?***
+
+- First Hidden Layer: This layer consists of 80 neurons (hidden nodes) and uses the ReLU (Rectified Linear Unit) activation function. The choice of 80 neurons for this layer suggests a relatively complex model capable of learning from a large number of input features. The ReLU activation function is widely used in deep learning due to its efficiency and the ability to solve the vanishing gradient problem, making it a good choice for the first hidden layer.
+
+- Second Hidden Layer: This layer has 30 neurons and also uses the ReLU activation function. A smaller number of neurons in this layer compared to the first hidden layer might be intended to begin the process of reducing the complexity of the model's representations as it prepares for output, while still allowing for a rich hierarchy of learned features. Using ReLU again here maintains consistency in activation functions across the network, promoting efficient learning.
+
+- Output Layer: The output layer has a single neuron with a sigmoid activation function. This configuration is typical for binary classification tasks, where the goal is to predict two possible outcomes (0 or 1). The sigmoid function outputs a value between 0 and 1, which can be interpreted as the probability of the input belonging to the positive class.
+
+**Were you able to achieve the target model performance?**
+- Our goal was to achieve 75% accuracy with our neural network model. Upon evaluation, our model achieved 72.60%, which does not meet our initial targets.  I also adjusted neuron Counts. Increasing the number of neurons can help the model capture more complex relationships, while decreasing them can prevent overfitting.Likewise, I adjusted the depth of the model which can help in learning more complex patterns or reduce overfitting by simplifying the model.
+
+**What steps did you take in your attempts to increase model performance?**
+- Improving a neural network model's performance often involves a series of systematic steps. In order to optimize the model using hyperparameter tuning further on, I tried with different activation functions (e.g., ReLU, ELU, Leaky ReLU) in different layers to improve training efficiency and model accuracy.
+
 ### Compiling, Training, and Evaluating the Model:
 
 There were three layers total for each model after applying Neural Networks. The number of
@@ -36,9 +65,9 @@ Our deep learning model has achieved a loss of approximately 0.5620 and an accur
 
 
 ### Overall Results Summary:
-- Performance: The model has a moderate level of accuracy, suggesting it has learned patterns from the training data that generalize to some extent to unseen data. However, there might still be room for improvement, especially if the application requires higher accuracy( in our case, 75% accuracy.)
+- Performance: Our models (Neural basic Model and optimization models) all have  moderate level of accuracies, suggesting it has learned patterns from the training data that generalize to some extent to unseen data. However, there might still be room for improvement, especially because the models are not able to achieve desired higher accuracy rate( in our case, 75% accuracy.)
 
-- Generalization: The loss value suggests that while the model has learned to classify to a certain degree, it's not yet optimal. The difference between training and test performance ( 0.7418>0.7260) indicates how our model is performing lower in test dataset compared to training dataset.
+- Generalization: The loss value suggests that while the model has learned to classify to a certain degree, it's not yet optimal. The difference between training and test performance ( 0.7418>0.7260) in neural network model indicate how our model is performing lower in test dataset compared to training dataset. The accuracy score of 0.7275 and loss rate of 0.5587 also suggest the model is not performing as per our expectations.
 
 ### Recommendations for Improvement:
 To potentially improve upon these results or tackle the classification problem more effectively, considering a different model or architecture might be beneficial..
@@ -49,7 +78,7 @@ Optimizing our model with the method you've provided involves using Keras Tuner,
 
 
 ### Evaluate the Model
-the multiple evaluations of your neural network model on the test dataset show slight variations in performance across different runs, Here’s a summary of your results:
+The multiple evaluations of your neural network model on the test dataset show slight variations in performance across different runs, Here’s a summary of your results:
 
 **First Evaluation:**
 
@@ -76,6 +105,7 @@ Our neural network model exhibits consistent performance with a slight variance 
 
 In the analysis, I have tried many ways with minimum 3 optimization methods by creating sequential models with different hyperparameter options to solve the same problem, but I was not able to get the accuracy rate above and equal to 75%, which is our desired accuracy rate for the analysis. 
 Given these observations, future work could involve investigating methods to further increase accuracy ,and decrease loss, such as experimenting with different architectures, further hyperparameter tuning, or increasing the dataset size and diversity. Additionally, examining model performance on a more granular level, such as analyzing the types of errors it makes, could provide insights into specific areas for improvement.
+
 
 
 
